@@ -1,10 +1,11 @@
 require(["gitbook"], function(gitbook) {
-  gitbook.events.bind("start", function(e, config) {
-    var config = config.adsense
-      , adsByGoogleScript
-      , ad
-      ;
+  var config = config.adsense
+    , adInsertPoint = document.querySelector('.page-inner section')
+    , adsByGoogleScript
+    , ad
+    ;
 
+  gitbook.events.bind("start", function(e, config) {
     // Inject script to head.
     adsByGoogleScript = document.createElement('script');
     adsByGoogleScript.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
@@ -19,8 +20,14 @@ require(["gitbook"], function(gitbook) {
     ad.setAttribute('data-ad-client', config.client);
     ad.setAttribute('data-ad-slot', config.slot);
     ad.setAttribute('data-ad-format', config.format);
-    document.querySelector('.page-inner section').appendChild(ad);
+    adInsertPoint.appendChild(ad);
 
     (adsbygoogle = window.adsbygoogle || []).push({});
+  });
+
+  gitbook.events.bind("page.change", function() {
+    if (ad) {
+      adInsertPoint.appendChild(ad);
+    }
   });
 });
