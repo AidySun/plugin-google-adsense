@@ -1,6 +1,6 @@
 require(["gitbook"], function(gitbook) {
   gitbook.events.bind("start", function(e, config) {
-    var config = config.ga
+    var config = config.adsense
       , adsByGoogleScript
       , ad
       ;
@@ -19,7 +19,7 @@ require(["gitbook"], function(gitbook) {
     ad.setAttribute('data-ad-client', config.client);
     ad.setAttribute('data-ad-slot', config.slot);
     ad.setAttribute('data-ad-format', config.format);
-    document.body.appendChild(ad);
+    document.querySelector('.page-inner section').appendChild(ad);
 
     (adsbygoogle = window.adsbygoogle || []).push({});
   });
