@@ -22,7 +22,7 @@ require(["gitbook"], function(gitbook) {
     // Generate <ins> (ad)
     ad = document.createElement('ins');
     ad.style = 'display: block';
-    ad.class = 'adsbygoogle';
+    ad.className = 'adsbygoogle';
     ad.setAttribute('data-ad-client', config.client);
     ad.setAttribute('data-ad-slot', config.slot);
     ad.setAttribute('data-ad-format', config.format);
