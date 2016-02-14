@@ -24,7 +24,8 @@ You can set the Google Adsense client and slot keys using the plugins configurat
       "adsense": {
         "client": "ca-pub-XXXXXXXXXXXXXXXX",
         "slot": "XXXXXXXXXX",
-        "format": "auto"
+        "format": "auto",
+        "element": ".page-inner section"
       }
     }
 }
