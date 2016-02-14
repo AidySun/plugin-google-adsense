@@ -1,17 +1,26 @@
 require(["gitbook"], function(gitbook) {
-    // Load analytics.js
-    gitbook.events.bind("start", function(e, config) {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  gitbook.events.bind("start", function(e, config) {
+    var config = config.ga
+      , adsByGoogleScript
+      , ad
+      ;
 
-        var cfg = config.ga;
-        ga('create', cfg.token, cfg.configuration);
-    });
+    // Inject script to head.
+    adsByGoogleScript = document.createElement('script');
+    adsByGoogleScript.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    adsByGoogleScript.setAttribute('async', true);
+    document.body.appendChild(adsByGoogleScript);
 
-    // Notify pageview
-    gitbook.events.bind("page.change", function() {
-        ga('send', 'pageview', window.location.pathname+window.location.search);
-    });
+    // Generate <ins>
+
+    ad = document.createElement('ins');
+    ad.style = 'display: block';
+    ad.class = 'adsbygoogle';
+    ad.setAttribute('data-ad-client', config.client);
+    ad.setAttribute('data-ad-slot', config.slot);
+    ad.setAttribute('data-ad-format', config.format);
+    document.body.appendChild(ad);
+
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  });
 });
