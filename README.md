@@ -22,8 +22,9 @@ You can set the Google Adsense client and slot keys using the plugins configurat
     "plugins": ["adsense"],
     "pluginsConfig": {
         "adsense": {
-            "client": "UA-XXXX-Y",
-            "slot": ""
+            "client": "ca-pub-XXXX",
+            "slot": "XXXX",
+            "format": "auto"
         }
     }
 }
