@@ -11,7 +11,7 @@ And use it for your book with in the book.json:
 
 ```
 {
-    "plugins": ["adsense"]
+  "plugins": ["adsense"]
 }
 ```
 
@@ -21,11 +21,11 @@ You can set the Google Adsense client and slot keys using the plugins configurat
 {
     "plugins": ["adsense"],
     "pluginsConfig": {
-        "adsense": {
-            "client": "ca-pub-XXXX",
-            "slot": "XXXX",
-            "format": "auto"
-        }
+      "adsense": {
+        "client": "ca-pub-XXXXXXXXXXXXXXXX",
+        "slot": "XXXXXXXXXX",
+        "format": "auto"
+      }
     }
 }
 ```
