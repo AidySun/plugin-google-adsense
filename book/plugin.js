@@ -38,7 +38,7 @@ require(["gitbook"], function(gitbook) {
   });
 
   // I insert ad again when switching pages
-  gitbook.events.bind("page.change", function() {
+  gitbook.events.bind("page.change", function(e, cnf) {
     if (ad) {
         var config = cnf.adsense
           , adsByGoogleScript
