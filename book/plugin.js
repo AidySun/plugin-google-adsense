@@ -1,5 +1,6 @@
 require(["gitbook"], function(gitbook) {
     var adInsertPoint = '.page-inner section'
+    , adPosition = 'bottom'
     , ad
     ;
 
@@ -11,6 +12,11 @@ require(["gitbook"], function(gitbook) {
     // Use custom insert point if defined
     if (config.element) {
       adInsertPoint = config.element;
+    }
+
+    // Use custom position if defined
+    if (config.position) {
+      adPosition = config.position;
     }
 
     // Inject script to head.
@@ -29,7 +35,7 @@ require(["gitbook"], function(gitbook) {
 
     // Add the ad to the DOM
     var element = document.querySelector(adInsertPoint);
-    if (config.position == 'top')
+    if (adPosition == 'top')
         element.insertBefore(ad, element.firstChild);
     else
         element.appendChild(ad);
@@ -38,13 +44,10 @@ require(["gitbook"], function(gitbook) {
   });
 
   // I insert ad again when switching pages
-  gitbook.events.bind("page.change", function(e, cnf) {
+  gitbook.events.bind("page.change", function() {
     if (ad) {
-        var config = cnf.adsense
-          , adsByGoogleScript
-          ;
         var element = document.querySelector(adInsertPoint);
-        if (config.position == 'top')
+        if (adPosition == 'top')
             element.insertBefore(ad, element.firstChild);
         else
             element.appendChild(ad);
