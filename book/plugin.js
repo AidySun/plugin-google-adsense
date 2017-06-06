@@ -28,7 +28,11 @@ require(["gitbook"], function(gitbook) {
     ad.setAttribute('data-ad-format', config.format);
 
     // Add the ad to the DOM
-    document.querySelector(adInsertPoint).appendChild(ad);
+    var element = document.querySelector(adInsertPoint);
+    if (config.position == 'top')
+        element.insertBefore(ad, element.firstChild);
+    else
+        element.appendChild(ad);
 
     (adsbygoogle = window.adsbygoogle || []).push({});
   });
