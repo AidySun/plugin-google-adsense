@@ -25,8 +25,10 @@ You can set the Google Adsense client and slot keys using the plugins configurat
         "client": "ca-pub-XXXXXXXXXXXXXXXX",
         "slot": "XXXXXXXXXX",
         "format": "auto",
-        "element": ".page-inner section"
+        "element": ".page-inner section",
+        "position": "top"
       }
     }
 }
 ```
+Allowed positions are `top` and `bottom` (default)
