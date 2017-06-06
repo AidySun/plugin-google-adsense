@@ -40,6 +40,9 @@ require(["gitbook"], function(gitbook) {
   // I insert ad again when switching pages
   gitbook.events.bind("page.change", function() {
     if (ad) {
+        var config = cnf.adsense
+          , adsByGoogleScript
+          ;
         var element = document.querySelector(adInsertPoint);
         if (config.position == 'top')
             element.insertBefore(ad, element.firstChild);
