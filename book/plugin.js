@@ -35,10 +35,11 @@ require(["gitbook"], function(gitbook) {
 
     // Add the ad to the DOM
     var element = document.querySelector(adInsertPoint);
-    if (adPosition == 'top')
+    if (adPosition === 'top') {
         element.insertBefore(ad, element.firstChild);
-    else
+    } else {
         element.appendChild(ad);
+    }
 
     (adsbygoogle = window.adsbygoogle || []).push({});
   });
@@ -47,10 +48,11 @@ require(["gitbook"], function(gitbook) {
   gitbook.events.bind("page.change", function() {
     if (ad) {
         var element = document.querySelector(adInsertPoint);
-        if (adPosition == 'top')
+        if (adPosition === 'top') {
             element.insertBefore(ad, element.firstChild);
-        else
+        } else {
             element.appendChild(ad);
+        }
     }
   });
 });
